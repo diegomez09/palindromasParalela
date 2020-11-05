@@ -31,7 +31,7 @@ public class Palindroma extends JFrame {
         SecuenT = new JTextArea();
         SecuenT.setBounds(20, 120, 500, 20);
         //SecuenT.setBackground(Color.decode("#609cee"));
-        SecuenT.setEditable(false);
+        SecuenT.setEditable(true);
         JScrollPane bar1 = new JScrollPane(SecuenT);
         this.add(SecuenT);
 
@@ -56,11 +56,9 @@ public class Palindroma extends JFrame {
         btnStart.setBounds(100, 500, 700, 80);
         btnStart.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent ae) {
-                inicio = System.currentTimeMillis();
-                separarCadena();
-                 total = System.currentTimeMillis();
-                 SecuenT.setText(total - inicio + " milisegundos // "+contadorPalabras+" palabras");
+            public void actionPerformed(ActionEvent ae) {                
+                separarCadena();                 
+                 SecuenT.setText(total - inicio + " milisegundos // "+contadorPalabras+" palabras Secuencial");
                  contadorPalabras = 0;
             }
         });
@@ -80,8 +78,10 @@ public class Palindroma extends JFrame {
     public void separarCadena() {
         String palabras = Palabras.getText();
         String[] ArregloPalabras = palabras.split(" ");
-        contandoPalabras(ArregloPalabras);
-        ForkPalindroma f = new ForkPalindroma(ArregloPalabras);
+        inicio = System.currentTimeMillis();
+        ForkPalindroma f = new ForkPalindroma(ArregloPalabras);        
+        contandoPalabras(ArregloPalabras);        
+        total = System.currentTimeMillis();
     }
 
     public void contandoPalabras(String[] palabras) {
@@ -108,5 +108,9 @@ public class Palindroma extends JFrame {
                 //System.out.println(palabras[i] + " NO es un palindromo");
             //}
         }
+    }
+    
+    public void setTextFork(String g){
+        ForkJoinT.setText(g);
     }
 }

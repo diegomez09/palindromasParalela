@@ -22,19 +22,19 @@ public final class ForkPalindroma extends RecursiveAction {
     Long inicio,total;
 
     public ForkPalindroma(String[] palabrasLllegan) {
-        System.out.println(palabrasLllegan.length);
+        //System.out.println(palabrasLllegan.length);
         this.palabras = palabrasLllegan;
         inicio = System.currentTimeMillis();
         compute();
         total = System.currentTimeMillis();
-        System.out.println(total - inicio + " milisegundos // " + contadorPalabras + " palabras Fork/Join");
-        setTextFork();
+        //System.out.println(total - inicio + " milisegundos // " + contadorPalabras + " palabras Fork/Join");
+        p.setTextFork(total - inicio + " milisegundos // " + contadorPalabras + " palabras Fork/Join");
         contadorPalabras = 0;
     }
     
-    public void setTextFork(){
-        SecuenT.setText(total - inicio + " milisegundos // " + contadorPalabras + " palabras Fork/Join");
-    }
+//    public void setTextFork(){
+//        SecuenT.setText(total - inicio + " milisegundos // " + contadorPalabras + " palabras Fork/Join");
+//    }
 
     protected void compute() {
         for (int i = 0; i < palabras.length; i++) {
