@@ -15,11 +15,11 @@ public class Palindroma extends JFrame {
     public static JTextArea Palabras, SecuenT, ForkJoinT, ExecutorT;
     public JLabel timeSecuen, timeForkJoin, timeExecutor;
     public JButton btnStart;
-    public Integer contadorPalabras=0;
+    public static Integer contadorPalabras=0;
     public String cadenaPalabras = "anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz";
     public long inicio,total,resultado;
 
-    Palindroma(String [] palabras) {
+    Palindroma() {
         super("DFGG 17310120");
         //text area palabras
         Palabras = new JTextArea();
@@ -73,7 +73,7 @@ public class Palindroma extends JFrame {
 
     public static void main(String[] args) {
         // TODO code application logic here
-        Palindroma p = new Palindroma();
+        Palindroma p = new Palindroma();        
 
     }
 
@@ -81,6 +81,7 @@ public class Palindroma extends JFrame {
         String palabras = Palabras.getText();
         String[] ArregloPalabras = palabras.split(" ");
         contandoPalabras(ArregloPalabras);
+        ForkPalindroma f = new ForkPalindroma(ArregloPalabras);
     }
 
     public void contandoPalabras(String[] palabras) {
