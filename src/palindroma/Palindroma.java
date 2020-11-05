@@ -8,7 +8,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import static palindroma.ForkPalindroma.setTextFork;
 
 public class Palindroma extends JFrame {
 
@@ -84,7 +83,7 @@ public class Palindroma extends JFrame {
         String[] ArregloPalabras = palabras.split(" ");    
         //fork join
         ForkPalindroma f = new ForkPalindroma(ArregloPalabras);
-        String n = setTextFork();
+        String n = f.setTextFork();
         ForkJoinT.setText(n);
         inicio = System.currentTimeMillis();
         contandoPalabras(ArregloPalabras);        

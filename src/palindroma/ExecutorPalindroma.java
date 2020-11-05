@@ -5,30 +5,23 @@
  */
 package palindroma;
 
-import java.util.concurrent.ForkJoinPool;
-import java.util.concurrent.RecursiveAction;
-import static palindroma.Palindroma.SecuenT;
-import static palindroma.Palindroma.contadorPalabras;
-
 /**
  *
  * @author User
  */
-public final class ForkPalindroma extends RecursiveAction {
+public class ExecutorPalindroma implements Runnable {
 
-    //Palindroma p = new Palindroma();
     public String[] palabras = new String[50];
     public static String texto;
     Integer contadorPalabras = 0;
     Long inicio, total;
 
-    public ForkPalindroma(String[] palabrasLllegan) {
-        //System.out.println(palabrasLllegan.length);
+    public ExecutorPalindroma(String[] palabrasLllegan) {
         this.palabras = palabrasLllegan;
         inicio = System.currentTimeMillis();
-        compute();
+        run();
         total = System.currentTimeMillis();
-        //System.out.println(total - inicio + " milisegundos // " + contadorPalabras + " palabras Fork/Join");
+        System.out.println(total - inicio + " milisegundos // " + contadorPalabras + " palabras Fork/Join");
         texto = (total - inicio + " milisegundos // " + contadorPalabras + " palabras Fork/Join");
         contadorPalabras = 0;
     }
@@ -37,7 +30,8 @@ public final class ForkPalindroma extends RecursiveAction {
         return texto;
     }
 
-    protected void compute() {
+    @Override
+    public void run() {
         palindromas();
     }
 
@@ -66,4 +60,5 @@ public final class ForkPalindroma extends RecursiveAction {
             //}
         }
     }
+
 }
