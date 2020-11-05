@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import static palindroma.ForkPalindroma.setTextFork;
 
 public class Palindroma extends JFrame {
 
@@ -16,14 +17,15 @@ public class Palindroma extends JFrame {
     public JLabel timeSecuen, timeForkJoin, timeExecutor;
     public JButton btnStart;
     public static Integer contadorPalabras=0;
-    public String cadenaPalabras = "anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz";
+    public String cadenaPalabras = "anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz anilina Las personas mayores son incapaces de comprender algo por sí solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz solas es muy fastidioso para los niños darles explicaciones una arepera otra vez arepera zaz";
+    
     public long inicio,total,resultado;
 
     Palindroma() {
         super("DFGG 17310120");
         //text area palabras
         Palabras = new JTextArea();
-        Palabras.setText(cadenaPalabras);
+        Palabras.setText(cadenaPalabras);        
         Palabras.setBounds(20, 20, 1800, 20);
         JScrollPane bar = new JScrollPane(Palabras);
         this.add(Palabras);
@@ -76,10 +78,15 @@ public class Palindroma extends JFrame {
     }
 
     public void separarCadena() {
+        //obtengo las palabras
         String palabras = Palabras.getText();
-        String[] ArregloPalabras = palabras.split(" ");
+        //separo en un arreglo
+        String[] ArregloPalabras = palabras.split(" ");    
+        //fork join
+        ForkPalindroma f = new ForkPalindroma(ArregloPalabras);
+        String n = setTextFork();
+        ForkJoinT.setText(n);
         inicio = System.currentTimeMillis();
-        ForkPalindroma f = new ForkPalindroma(ArregloPalabras);        
         contandoPalabras(ArregloPalabras);        
         total = System.currentTimeMillis();
     }
@@ -108,9 +115,5 @@ public class Palindroma extends JFrame {
                 //System.out.println(palabras[i] + " NO es un palindromo");
             //}
         }
-    }
-    
-    public void setTextFork(String g){
-        ForkJoinT.setText(g);
     }
 }

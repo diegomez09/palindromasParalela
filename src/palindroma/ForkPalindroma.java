@@ -18,6 +18,7 @@ public final class ForkPalindroma extends RecursiveAction {
 
     Palindroma p = new Palindroma();
     public String[] palabras = new String[50];
+    public  static String texto;
     Integer contadorPalabras = 0;
     Long inicio,total;
 
@@ -28,13 +29,13 @@ public final class ForkPalindroma extends RecursiveAction {
         compute();
         total = System.currentTimeMillis();
         //System.out.println(total - inicio + " milisegundos // " + contadorPalabras + " palabras Fork/Join");
-        p.setTextFork(total - inicio + " milisegundos // " + contadorPalabras + " palabras Fork/Join");
+        texto = (total - inicio + " milisegundos // " + contadorPalabras + " palabras Fork/Join");
         contadorPalabras = 0;
     }
     
-//    public void setTextFork(){
-//        SecuenT.setText(total - inicio + " milisegundos // " + contadorPalabras + " palabras Fork/Join");
-//    }
+    public static String setTextFork(){
+        return texto;
+    }
 
     protected void compute() {
         for (int i = 0; i < palabras.length; i++) {
