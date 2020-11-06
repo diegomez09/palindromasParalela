@@ -85,6 +85,10 @@ public class Palindroma extends JFrame {
         ForkPalindroma f = new ForkPalindroma(ArregloPalabras);
         String n = f.setTextFork();
         ForkJoinT.setText(n);
+        //executor
+        ExecutorPalindroma e = new ExecutorPalindroma(ArregloPalabras);
+        n = e.setTextExe();
+        ExecutorT.setText(n);
         inicio = System.currentTimeMillis();
         contandoPalabras(ArregloPalabras);        
         total = System.currentTimeMillis();

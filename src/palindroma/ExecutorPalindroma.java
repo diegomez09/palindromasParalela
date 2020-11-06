@@ -21,12 +21,12 @@ public class ExecutorPalindroma implements Runnable {
         inicio = System.currentTimeMillis();
         run();
         total = System.currentTimeMillis();
-        System.out.println(total - inicio + " milisegundos // " + contadorPalabras + " palabras Fork/Join");
+        //System.out.println(total - inicio + " milisegundos // " + contadorPalabras + " palabras Fork/Join");
         texto = (total - inicio + " milisegundos // " + contadorPalabras + " palabras Fork/Join");
         contadorPalabras = 0;
     }
 
-    public String setTextFork() {
+    public String setTextExe() {
         return texto;
     }
 
