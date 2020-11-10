@@ -28,9 +28,9 @@ public final class ForkPalindroma {
 
     public ForkPalindroma(String[] palabrasLlegan) {
         this.palabras = palabrasLlegan;
-        List<String> aux = new ArrayList<String>();
-        inicio = System.currentTimeMillis();
+        List<String> aux = new ArrayList<String>();        
         ForkJoinPool pool = new ForkJoinPool();
+        inicio = System.currentTimeMillis();
         pool.invoke(new Palindroma(palabras));
         total = System.currentTimeMillis();
         //contadorPalabras = aux.size();
@@ -72,6 +72,7 @@ public final class ForkPalindroma {
                 }
                 invokeAll(tasks);
             } else {
+                inicio = System.currentTimeMillis();
                 palindromas(palabras, contador);
             }
             //System.out.println(contadorPalabras);

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package palindroma;
 
 import static java.lang.Compiler.command;
@@ -17,7 +12,7 @@ import java.util.concurrent.TimeUnit;
  *
  * @author User
  */
-public class ExecutorPalindroma{
+public class ExecutorPalindroma {
 
     public String[] palabras;
     public static String texto;
@@ -25,27 +20,29 @@ public class ExecutorPalindroma{
     Long inicio, total;
     ExecutorService executor = Executors.newFixedThreadPool(10);
 
-    ExecutorPalindroma(String[] palabrasLlegan) throws InterruptedException, ExecutionException{
-        this.palabras = palabrasLlegan;        
+    ExecutorPalindroma(String[] palabrasLlegan) throws InterruptedException, ExecutionException {
+        this.palabras = palabrasLlegan;
         //System.out.println(Runtime.getRuntime().availableProcessors());
-        ExecutorService es = Executors.newFixedThreadPool(4);
-        Future<String> totalPalabras;
-        inicio = System.currentTimeMillis();
+        ExecutorService es = Executors.newFixedThreadPool(12);
+        Future<String> totalPalabras;        
         for (int i = 0; i < palabrasLlegan.length; i++) {
+            inicio = System.currentTimeMillis();
             totalPalabras = es.submit(new Palindromo(palabras[i]));
+            total = System.currentTimeMillis();
             if (!"".equals(totalPalabras.get())) {
                 contadorPalabras++;
-            }
+            }            
         }
-        total = System.currentTimeMillis();
         es.shutdown();
-        es.awaitTermination(1, TimeUnit.DAYS);        
-        this.texto = (total - inicio + " milisegundos // " + contadorPalabras + " palabras Fork/Join");
+        es.awaitTermination(1, TimeUnit.DAYS);
+        this.texto = (total - inicio + " milisegundos // " + contadorPalabras + " palabras Executor");
     }
 
-    private class Palindromo implements Callable<String>{
+    private class Palindromo implements Callable<String> {
+
         String palabra;
-        Palindromo(String palabra){
+
+        Palindromo(String palabra) {
             this.palabra = palabra;
         }
 
@@ -63,15 +60,14 @@ public class ExecutorPalindroma{
                     bError = true;
                 }
             }
-            
+
             //this.contadorPalabras++;
             //return !bError;
             if (!bError) {
                 return palabra;
-            }
-            else{
+            } else {
                 return "";
             }
-        }       
+        }
     }
 }

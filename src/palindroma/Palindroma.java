@@ -38,7 +38,7 @@ public class Palindroma extends JFrame {
         //Palabras.setText(aux);
         Palabras.setBounds(20, 20, 1800, 20);
         JScrollPane bar = new JScrollPane(Palabras);
-        this.add(Palabras);
+        //this.add(Palabras);
         //text area secuancial
         SecuenT = new JTextArea();
         SecuenT.setBounds(20, 120, 500, 20);
@@ -95,10 +95,10 @@ public class Palindroma extends JFrame {
 
     public void separarCadena() throws InterruptedException, ExecutionException {        
         //obtengo las palabras
-        String palabras = aux;//Palabras.getText();
+        String palabras = cadenaDos;//Palabras.getText();
         //separo en un arreglo
         String[] ArregloPalabras = palabras.split(" ");//10,000
-        int multiplicador = 10;
+        int multiplicador = 100000;
         String[] mamadisimo = new String[ArregloPalabras.length*multiplicador];//10,000*multiplicador
         for (int i = 0; i < multiplicador; i++) {
             for (int j = 0; j < ArregloPalabras.length; j++) {
