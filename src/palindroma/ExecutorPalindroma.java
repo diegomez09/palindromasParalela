@@ -39,9 +39,7 @@ public class ExecutorPalindroma {
     }
 
     private class Palindromo implements Callable<String> {
-
         String palabra;
-
         Palindromo(String palabra) {
             this.palabra = palabra;
         }
@@ -60,9 +58,6 @@ public class ExecutorPalindroma {
                     bError = true;
                 }
             }
-
-            //this.contadorPalabras++;
-            //return !bError;
             if (!bError) {
                 return palabra;
             } else {
