@@ -6,94 +6,72 @@
 package palindroma;
 
 import static java.lang.Compiler.command;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
  * @author User
  */
-public class ExecutorPalindroma implements Runnable {
+public class ExecutorPalindroma{
 
-    public String[] palabras = new String[50];
+    public String[] palabras;
     public static String texto;
     Integer contadorPalabras = 0;
     Long inicio, total;
     ExecutorService executor = Executors.newFixedThreadPool(10);
 
-    public ExecutorPalindroma(String[] palabrasLllegan) {
+    ExecutorPalindroma(String[] palabrasLlegan) throws InterruptedException, ExecutionException{
+        this.palabras = palabrasLlegan;        
+        //System.out.println(Runtime.getRuntime().availableProcessors());
+        ExecutorService es = Executors.newFixedThreadPool(4);
+        Future<String> totalPalabras;
         inicio = System.currentTimeMillis();
-        this.palabras = palabrasLllegan;
-        //executor.execute(command);
-        run();
-        total = System.currentTimeMillis();
-        //System.out.println(total - inicio + " milisegundos // " + contadorPalabras + " palabras Fork/Join");
-        texto = (total - inicio + " milisegundos // " + contadorPalabras + " palabras Executor");
-        contadorPalabras = 0;
-    }
-
-    public String setTextExe() {
-        return texto;
-    }
-
-    Runnable command = new Runnable() {
-        @Override
-        public void run() {
-            for (int i = 0; i < palabras.length; i++) {
-                int inc = 0;
-                int des = palabras[i].length() - 1;
-                boolean bError = false;
-
-                while ((inc < des) && (!bError)) {
-
-                    if (palabras[i].charAt(inc) == palabras[i].charAt(des)) {
-                        inc++;
-                        des--;
-                    } else {
-                        bError = true;
-                    }
-                }
-
-                if (!bError) {
-                    contadorPalabras++;
-                    //System.out.println(contadorPalabras);
-                    // System.out.println(palabras[i] + " forkJoin");
-                } //else {
-                //System.out.println(palabras[i] + " NO es un palindromo");
-                //}
+        for (int i = 0; i < palabrasLlegan.length; i++) {
+            totalPalabras = es.submit(new Palindromo(palabras[i]));
+            if (!"".equals(totalPalabras.get())) {
+                contadorPalabras++;
             }
         }
-    };
+        total = System.currentTimeMillis();
+        es.shutdown();
+        es.awaitTermination(1, TimeUnit.DAYS);        
+        this.texto = (total - inicio + " milisegundos // " + contadorPalabras + " palabras Fork/Join");
+    }
 
-    public void palindromas() {
-        for (int i = 0; i < palabras.length; i++) {
+    private class Palindromo implements Callable<String>{
+        String palabra;
+        Palindromo(String palabra){
+            this.palabra = palabra;
+        }
+
+        @Override
+        public String call() throws Exception {
             int inc = 0;
-            int des = palabras[i].length() - 1;
+            int des = palabra.length() - 1;
             boolean bError = false;
 
             while ((inc < des) && (!bError)) {
-
-                if (palabras[i].charAt(inc) == palabras[i].charAt(des)) {
+                if (palabra.charAt(inc) == palabra.charAt(des)) {
                     inc++;
                     des--;
                 } else {
                     bError = true;
                 }
             }
-
+            
+            //this.contadorPalabras++;
+            //return !bError;
             if (!bError) {
-                contadorPalabras++;
-                //System.out.println(contadorPalabras);
-                // System.out.println(palabras[i] + " forkJoin");
-            } //else {
-            //System.out.println(palabras[i] + " NO es un palindromo");
-            //}
-        }
+                return palabra;
+            }
+            else{
+                return "";
+            }
+        }       
     }
-
-    @Override
-    public void run() {
-        palindromas();
-    }
-
 }

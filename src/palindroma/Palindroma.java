@@ -3,6 +3,9 @@ package palindroma;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -66,7 +69,13 @@ public class Palindroma extends JFrame {
         btnStart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                separarCadena();
+                try {
+                    separarCadena();
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Palindroma.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ExecutionException ex) {
+                    Logger.getLogger(Palindroma.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 SecuenT.setText(total - inicio + " milisegundos // " + contadorPalabras + " palabras Secuencial");
                 contadorPalabras = 0;
             }
@@ -84,12 +93,12 @@ public class Palindroma extends JFrame {
 
     }
 
-    public void separarCadena() {        
+    public void separarCadena() throws InterruptedException, ExecutionException {        
         //obtengo las palabras
         String palabras = aux;//Palabras.getText();
         //separo en un arreglo
         String[] ArregloPalabras = palabras.split(" ");//10,000
-        int multiplicador = 1000;
+        int multiplicador = 10;
         String[] mamadisimo = new String[ArregloPalabras.length*multiplicador];//10,000*multiplicador
         for (int i = 0; i < multiplicador; i++) {
             for (int j = 0; j < ArregloPalabras.length; j++) {
@@ -108,7 +117,7 @@ public class Palindroma extends JFrame {
         ForkJoinT.setText(n);
         //executor
         ExecutorPalindroma e = new ExecutorPalindroma(mamadisimo);
-        n = e.setTextExe();
+        n = String.valueOf(e.texto);
         ExecutorT.setText(n);        
     }
 
